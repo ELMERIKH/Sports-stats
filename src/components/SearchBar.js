@@ -1,6 +1,7 @@
+// SearchBar.js
 import React, { useState } from 'react';
 
-const SearchBar = ({ handleSearch }) => {
+const SearchBar = ({ handleTeamSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (e) => {
@@ -9,21 +10,20 @@ const SearchBar = ({ handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearch(searchTerm);
+    handleTeamSearch(searchTerm);
     setSearchTerm('');
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', justifyContent: 'center',marginTop: '150px'  }}>
+    <form onSubmit={handleSubmit} style={{ display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
       <input
         type="text"
         placeholder="Search for a team..."
         value={searchTerm}
         onChange={handleChange}
         style={{ padding: '10px', width: '300px', borderRadius: '5px', border: '1px solid #ccc' }}
-
       />
-  <button
+      <button
         type="submit"
         style={{
           marginLeft: '10px',

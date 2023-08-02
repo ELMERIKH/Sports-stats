@@ -92,7 +92,7 @@
   padding: 20px;
 }
 body {
-    background:  radial-gradient(darkgray,black,lightslategray);
+    background:  radial-gradient(darkgray,rgb(238, 232, 232),lightslategray);
   }
   .navbar__container {
     display: flex;
