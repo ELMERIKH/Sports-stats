@@ -92,8 +92,24 @@
   padding: 20px;
 }
 body {
-    background:  radial-gradient(darkgray,rgb(238, 232, 232),lightslategray);
-  }
+	background: linear-gradient(-45deg, #16025e, #110b33, #0b0949, #08007c);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
   .navbar__container {
     display: flex;
     align-items: center;

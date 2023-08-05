@@ -4,6 +4,7 @@ import axios from 'axios';
 const TeamInfo = () => {
   const [teamName, setTeamName] = useState('');
   const [teamData, setTeamData] = useState(null);
+  const [error, setError] = useState(false);
 
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -13,7 +14,12 @@ const TeamInfo = () => {
           'x-apisports-key': '82bfaac93f58ea6e01674507a83f7e66'
         }
       });
-      setTeamData(response.data.response[0]);
+      if (response.data.response.length === 0) {
+        setError(true);
+      } else {
+        setTeamData(response.data.response[0]);
+        setError(false);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -46,25 +52,27 @@ const TeamInfo = () => {
       </form>
       {teamData ? (
         <div>
-          <h2>Team Information</h2>
-          <p>Team Name: {teamData.team.name}</p>
-          <p>Country: {teamData.team.country}</p>
-          <p>Founded: {teamData.team.founded}</p>
+          <h2 style={{ color: 'gold' }}>Team Information</h2>
+          <p style={{ color: 'white' }}>Team Name: {teamData.team.name}</p>
+          <p style={{ color: 'white' }}>Country: {teamData.team.country}</p>
+          <p style={{ color: 'white' }}>Founded: {teamData.team.founded}</p>
           <img src={teamData.team.logo} alt="Team Logo" style={{ width: '100px', height: '100px' }} />
-          <h3>Venue Information</h3>
-          <p>Venue Name: {teamData.venue.name}</p>
-          <p>Address: {teamData.venue.address}</p>
-          <p>City: {teamData.venue.city}</p>
-          <p>Capacity: {teamData.venue.capacity}</p>
+          <h3 style={{ color: 'gold' }}>Venue Information</h3>
+          <p style={{ color: 'white' }}>Venue Name: {teamData.venue.name}</p>
+          <p style={{ color: 'white' }}>Address: {teamData.venue.address}</p>
+          <p style={{ color: 'white' }}>City: {teamData.venue.city}</p>
+          <p style={{ color: 'white' }}>Capacity: {teamData.venue.capacity}</p>
           <img src={teamData.venue.image} alt="Venue Image" style={{ width: '100px', height: '100px' }} />
-</div>
-) : (
-<p>Loading team information...</p>
-
-)}
-
-</div>
-);
+        </div>
+      ) : (
+        error ? (
+          <p style={{ color: 'red' }}>Team name invalid</p>
+        ) : null
+          
+        
+      )}
+    </div>
+  );
 };
 
 export default TeamInfo;
