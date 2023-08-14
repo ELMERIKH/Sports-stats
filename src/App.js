@@ -9,6 +9,7 @@ import './styles.css';
 import Highlights from './components/highlights';
 import Livescores from './components/livescores';
 import Leagues from './components/leagues';
+import AISearch from './components/searchAI';
 function App() {
     
     return (
@@ -18,16 +19,17 @@ function App() {
           <div className="container">
             <div className="search-container">
             
-      <TeamInfo  />
+  
               
             </div>
            
             <Routes>
+               <Route exact path="/" element={    <TeamInfo  />} />
               <Route exact path="/highlights" element={<Highlights/>} />
               <Route exact  path="/livescores" element={<Livescores/>} />
               <Route exact path="/standings" element={ <Leagues />} />
               <Route exact path="/Games" element={ <Games />} />
-
+              <Route exact path="/Search" element={ <AISearch />} />
               {/* Add more routes for other components */}
             </Routes>
           

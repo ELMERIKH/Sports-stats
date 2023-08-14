@@ -22,6 +22,9 @@ const Navbar = () => {
           <Link to="/games" className="navbar__item">
             <button className="btn" style={{ color: 'white' }}>Games</button>
           </Link>
+          <Link to="/Search" className="navbar__item">
+            <button className="btn" style={{ color: 'white' }}>SearchAI</button>
+          </Link>
         </div>
       </div>
     </nav>
