@@ -51,25 +51,30 @@ const TeamInfo = () => {
         const leagueData = await leagueResponse.json();        
         
         setLeagueID(leagueData.response[0].league.id);
-        console.log(leagueData.response[0].league.id)
+        console.log(lID)
         
        
 
-        const statisticsResponse = await axios.get(`https://v3.football.api-sports.io/teams/statistics?season=2022&team=${teamId}&league=${lID}`, {
+        const statisticsResponse = await axios.get(`https://v3.football.api-sports.io/teams/statistics?season=${season}&team=${teamId}&league=${leagueData.response[0].league.id}`, {
           headers: {
             'x-apisports-key': '82bfaac93f58ea6e01674507a83f7e66'
           }
         });
-       
-        setTeamStatistics(statisticsResponse.data.response);
-        console.log(statisticsResponse.data.response)
+       const res=statisticsResponse.data
+        setTeamStatistics(res.response);
+        console.log(res.response)
+        console.log(res.response.league)
+        setLoading(true);
       }
     } catch (error) {
       console.log(error);
       setTeamData(null); // Clear the previous teamData
       setTeamStatistics([]);
       // Clear the previous teamStatistics
+    }finally {
+      
     }
+  
   };
 
  
@@ -100,13 +105,14 @@ const TeamInfo = () => {
         </button>
       </form>
       {teamData ? (
-        <div style={{ background: '#0b0949', border: '2px solid #08007c ', padding: '10px' }}>
-          <h2 style={{ color: 'gold' }}>Team Information</h2>
+        <div style={{ background: '#0b0949', border: '2px solid #08007c ', padding: '10px' ,display: 'flex', flexDirection: 'row'  }}>
+          <td><h2 style={{ color: 'gold' }}>Team Information</h2>
           <p style={{ color: 'white' }}>Team Name: {teamData.team.name}</p>
           <p style={{ color: 'white' }}>Country: {teamData.team.country}</p>
           <p style={{ color: 'white' }}>Founded: {teamData.team.founded}</p>
           <img src={teamData.team.logo} alt="Team Logo" style={{ width: '200px', height: '200px' }} />
-
+          </td>
+          <tr>
           <ul>
             <h3 style={{ color: 'gold' }}>Venue Information</h3>
             <p style={{ color: 'white' }}>Venue Name: {teamData.venue.name}</p>
@@ -115,28 +121,31 @@ const TeamInfo = () => {
             <p style={{ color: 'white' }}>Capacity: {teamData.venue.capacity}</p>
             <img src={teamData.venue.image} alt="Venue Image" style={{ width: '200px', height: '150px' }} />
           </ul>
-          <h3 style={{ color: 'gold' }}>Team Statistics</h3>
-    <label htmlFor="season" style={{ color: 'white' }}>Season:</label>
-    <select
-        id="season"
-        value={season}
-        onChange={handleSeasonChange}
-        style={{ marginLeft: '10px' }}
-      >
-        {seasons.map((year) => (
-          <option key={year} value={year}>{year}</option>
-        ))}
-      </select>
-          {loading ? (
+          </tr>
+         
+          <ul></ul><ul></ul>
+ {!loading ? (
         <p>Loading statistics...</p>
-      ) : teamStatistics ? (
-  <div>
+      ) : teamStatistics  ? (
+        <div>
    
+        <h3 style={{ color: 'gold' }}>Team Statistics</h3>
+  <label htmlFor="season" style={{ color: 'white' }}>Season:</label>
+  <select
+      id="season"
+      value={season}
+      onChange={handleSeasonChange}
+      style={{ marginLeft: '10px' }}
+    >
+      {seasons.map((year) => (
+        <option key={year} value={year}>{year}</option>
+      ))}
+    </select>
     <table>
       <thead>
         <tr>
-          <th>Statistic</th>
-          <th>Value</th>
+          <th style={{ color: 'blue' }}>Statistic</th>
+          <th style={{ color: 'blue' }}>Value</th>
         </tr>
       </thead>
       <tbody>
@@ -205,7 +214,6 @@ const TeamInfo = () => {
   </div>) : (
         <p>No statistics available</p>
       )}
-
         </div>
       ) : (
         error ? (
