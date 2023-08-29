@@ -46,8 +46,8 @@ useEffect(() => {
           <Link to="/Search" className="navbar__item">
             <button className="btn" style={{ color: 'white' }}>SearchAI</button>
           </Link>
-          <Link to="/Basket-ball/standings" className="navbar__item">
-            <button className="btn" style={{ color: 'white' }} onClick={handleBLeaguesClick }>Basket</button>
+          <Link to="/Basket-Ball" className="navbar__item">
+            <button className="btn" style={{ color: 'white' }} onClick={handleBLeaguesClick }>Basketball</button>
           </Link>
         </div>
       </div>

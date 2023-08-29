@@ -68,7 +68,7 @@ function PlayerList() {
             marginLeft: '10px',
             padding: '10px 20px',
             borderRadius: '5px',
-            background: 'blue',
+            background: 'gold',
             color: 'white',
             border: 'none',
             animation: 'flashy 1s infinite',
