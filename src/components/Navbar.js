@@ -58,7 +58,7 @@ useEffect(() => {
        <h1 className="navbar__logo">Basket Stats</h1>
        <div className="navbar__items">
        <Link to="basket-ball/highlights" className="navbar__item">
-            <button className="btn" style={{ color: 'white' }} onClick={handleFLeaguesClick }>Highlights</button>
+            <button className="btn" style={{ color: 'white' }} >Highlights</button>
           </Link>
          <Link to="/basket-ball/standings" className="navbar__item">
            <button className="btn" style={{ color: 'white' }}>Standings</button>

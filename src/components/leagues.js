@@ -76,7 +76,7 @@ const Leagues = () => {
   return (
     <div>
          <form onSubmit={handleSubmit}>
-        <select
+        <select   className="dropdown-select1"
           value={league}
           onChange={(e) => setLeague(e.target.value)}
         >
@@ -84,7 +84,7 @@ const Leagues = () => {
             <option key={value} value={value}>{label}</option>
           ))}
         </select>
-        <select
+        <select  className="dropdown-select1"
           value={season}
           onChange={(e) => setSeason(e.target.value)}
         >
@@ -92,7 +92,20 @@ const Leagues = () => {
             <option key={value} value={value}>{label}</option>
           ))}
         </select>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          style={{
+            marginLeft: '10px',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            background: 'blue',
+            color: 'white',
+            border: 'none',
+            animation: 'flashy 1s infinite',
+          }}
+        >
+          Submit
+        </button>
       </form>
       <iframe
         id="iframeComponent"

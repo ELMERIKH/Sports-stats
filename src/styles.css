@@ -121,3 +121,69 @@ body {
     align-items: center;
     color: white;
   }
+  /* Bhighlights.css */
+
+.match-list {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.match {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.match:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.selected {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.match-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.season {
+  font-size: 14px;
+  opacity: 0.7;
+}
+.date-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown {
+  border: 1px solid gold;
+  background-color: black;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-select {
+  background-color: black;
+  color: gold;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.dropdown-select1 {
+  background-color: black;
+  color: rgb(0, 47, 255);
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
