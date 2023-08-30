@@ -12,6 +12,7 @@ import AISearch from './components/searchAI';
 import BLeagues from './components/Bleagues';
 import PlayerList from './components/basketsearch';
 import BGames from './components/BGames';
+import Bhighlights from './components/Bhighlights';
 function App() {
 
   return (
@@ -44,7 +45,7 @@ function App() {
               element={<BLeagues   />} 
             />
             <Route exact path="/Basket-Ball/Games" element={<BGames />} />
-            {/* Add more routes for other components */}
+            <Route exact path="/basket-ball/highlights" element={<Bhighlights />} />
           </Routes>
         </div>
       </div>

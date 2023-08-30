@@ -47,7 +47,7 @@ useEffect(() => {
             <button className="btn" style={{ color: 'white' }}>SearchAI</button>
           </Link>
           <Link to="/Basket-Ball" className="navbar__item">
-            <button className="btn" style={{ color: 'white' }} onClick={handleBLeaguesClick }>Basketball</button>
+            <button className="btn" style={{ color: 'white' }} onClick={handleBLeaguesClick }>BasketBall</button>
           </Link>
         </div>
       </div>
@@ -57,14 +57,16 @@ useEffect(() => {
      <Link to="/Basket-Ball">   <img src={basket} alt="Foot" className="app-bar__image"  width={100} height={100}/>  </Link>
        <h1 className="navbar__logo">Basket Stats</h1>
        <div className="navbar__items">
-       
+       <Link to="basket-ball/highlights" className="navbar__item">
+            <button className="btn" style={{ color: 'white' }} onClick={handleFLeaguesClick }>Highlights</button>
+          </Link>
          <Link to="/basket-ball/standings" className="navbar__item">
            <button className="btn" style={{ color: 'white' }}>Standings</button>
          </Link>
          <Link to="/Basket-ball/games" className="navbar__item">
            <button className="btn" style={{ color: 'white' }}>Games</button>
          </Link>
-         <Link to="/Search" className="navbar__item">
+         <Link to="/Basket-ball/Search" className="navbar__item">
            <button className="btn" style={{ color: 'white' }}>SearchAI</button>
          </Link>
          <Link to="/" className="navbar__item">
